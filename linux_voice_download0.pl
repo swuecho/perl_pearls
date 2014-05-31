@@ -1,6 +1,7 @@
 #==
 # download all the ogg files in the Linux Voice Podcast
 # http://www.linuxvoice.com/category/podcasts/
+# TODO: write more detailed explaination about it
 #==
 use echo;
 
