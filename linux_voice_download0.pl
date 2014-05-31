@@ -1,5 +1,6 @@
 #==
-# download all the ogg files in tht Linux Voice
+# download all the ogg files in the Linux Voice Podcast
+# http://www.linuxvoice.com/category/podcasts/
 #==
 use echo;
 
@@ -7,7 +8,7 @@ use URI;
 use LWP::Simple; # for get and getstore
 
 # download from link, and save the file as the bashname in the url path 
-sub download($address) {
+sub download ($address) {
      my $uri = URI->new($address);
      my $file = path($uri->path)->basename;
      say "$file is downloading";
