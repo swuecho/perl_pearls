@@ -9,8 +9,7 @@ source: https://projecteuler.net/problem=1
 ```perl
 use v5.14;
 use List::Util qw(sum);
-my $max = (shift || 1000) - 1;
-my @multiples = grep { not $_ % 5 && $_ % 3 } 1 .. $max;
+my @multiples = grep { not $_ % 5 && $_ % 3 } 1 .. 999;
 say sum @multiples;
 ```
 
