@@ -26,3 +26,8 @@ for (split /^/, get($rss_link)) {
     #<enclosure url="http://www.linuxvoice.com/episodes/lv_s02e10.ogg" length="54868488"
     download($1) if /url=\"(\S*mp3)\"/; # extract the link of ogg file
 }
+
+# split /^/, $multiple_lines;
+# split /$/, $multiple_lines;
+
+
