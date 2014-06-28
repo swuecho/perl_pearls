@@ -10,6 +10,7 @@ use experimental 'signatures';
 
 sub is_upper { shift =~/[A-Z]/ }
 
+
 sub stable_reverse($in_word) {
     my @letters =  (split '', $in_word); 
     my ($rev_char, $out_word);
