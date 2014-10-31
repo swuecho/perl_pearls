@@ -1,11 +1,9 @@
 use v5.21.5;
-#use experimental 'refaliasing';
+use experimental 'refaliasing';
 use Data::Dumper;
 
 my @b = (1..5);
-my @a = (1..5);
-my @a = @b;
-#\my (@a) =\(@b);
+\my (@a) =\(@b);
 # \my (@a) =(\@b); this is wrong
  
 
