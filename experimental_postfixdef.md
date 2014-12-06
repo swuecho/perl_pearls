@@ -1,8 +1,8 @@
-#  Perl 5.20 后缀解引用语法
+#  [Perl 5.20] 后缀解引用语法
 
 ## 启用 
 
-Perl 5.20 可以使用 postfix derefence 的语法，因为是新的feature，并不是默认启用的。
+Perl 5.20 可以使用后缀解引用，因为是新的feature，并不是默认启用的。
 所以，需要用
 
     use v5.20;
@@ -18,7 +18,7 @@ Perl 5.20 可以使用 postfix derefence 的语法，因为是新的feature，�
     
     my $items = ['a'..'z']; # 'a', 'b', 'c' .. 'z'
     
-    say "deref get a whole array";
+    say "get a whole array";
     say(join '; ',   @$items); # a; b; c; d; ... x; y; z
     say(join '; ',  $items->@*); # same
     
@@ -26,7 +26,7 @@ Perl 5.20 可以使用 postfix derefence 的语法，因为是新的feature，�
     say  $$items[1]; # 'b'
     say  $items->[1]; # 'b'
     
-    say "get multi value by indexes";
+    say "get multi values by indexes";
     say(join ';', @$items[2,3]); # 'b; c'
     say(join ';', $items->@[2,3]); # 'b; c'
     
@@ -35,7 +35,7 @@ Perl 5.20 可以使用 postfix derefence 的语法，因为是新的feature，�
     say $#$items; # 25
     
     
-    say "get index and value";
+    say "get indexes and values";
     use DDP; # Data::Priner 
     my %hash_norm = %$items[2,3]; # this is postfix slicing. 
     my %hash_postdef = $items->%[2,3]; # same here
