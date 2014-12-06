@@ -46,7 +46,7 @@ Perl 5.20 可以使用 postfix derefence 的语法，因为是新的feature，�
     p %hash_postdef; # { 2 => 'c' , 3 => 'd' }
     
     
-#### 你可以试试复制本文中的代码部分，运行一下。什么？ 你没有安装Data::Printer?
+你可以试试复制本文中的代码部分，运行一下。什么？ 你没有安装Data::Printer?
 
 ## 参考
 
