@@ -49,7 +49,7 @@ Perl 5.20 可以使用后缀解引用，因为是新的feature，并不是默认
 
 这里只讨论数组解引用，hash ref 的语法类似，当然，scalar ref， subroutine ref 也支持后缀解引用，不过用的相对较少。
 
-完全的列表可以参考下面的链接中的表格。
+完全的用法可以参考下面的链接中的表格。
 
 [Mini-Tutorial: Dereferencing Syntax](http://www.perlmonks.org/?node_id=977408)
 
