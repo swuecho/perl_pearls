@@ -303,9 +303,14 @@ if ( $content =~ $parser ) {
 其实 FASTA::record 的作用就是bless result hash 为 Seq object。 objtoken 只是相当于提供了一个简便写法。
 
 ## 后记
+本文中的三段代码都是可以直接运行的。虽然并不一个完整的FASTA 文件 Parser。需要做些细节的改动，如果你手头有FATSTA 格式的文件，不妨再文中代码基础上，做改进。主要是要对 dan，rna 和 aa 加 action。
 
-这个并不一个完整的FASTA 文件 Parser，需要做些细节的改动，如果你手头有FATSTA 格式的文件，不妨再文中代码基础上，做改进。
-Regexp::Grammars 有50多页的文档。
+另外，Regexp::Grammars 有50多页的文档。
+
+
+### 作者  
+
+* [SWUECHO](https://metacpan.org/author/SWUECHO)
 
 
 
