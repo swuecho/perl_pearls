@@ -137,7 +137,7 @@ __END__
 }
  
 ```
-代码[gist](https://gist.github.com/swuecho/9ec08fe5698e8011e294)
+[源代码1](https://gist.github.com/swuecho/9ec08fe5698e8011e294)
 
 文件的末尾是结果。
 
@@ -241,7 +241,7 @@ TOP   {
  }
 }
 ```
-代码[gist](https://gist.github.com/swuecho/09a0b815a2f08a74f140)
+[源代码2](https://gist.github.com/swuecho/09a0b815a2f08a74f140)
 
 解析的结果是 Seq object，大致的过程是，当record 匹配以后，如果有actions 并且，action 有record method，
 那么，这个record method就会被调用。第二个参数是匹配的 result hash ref。请参考，record 函数。
@@ -290,7 +290,7 @@ if ( $content =~ $parser ) {
 }
 
 ```
-代码[gist](https://gist.github.com/swuecho/67a8cedf03ed4d6b5e02)
+[源代码3](https://gist.github.com/swuecho/67a8cedf03ed4d6b5e02)
 
 这个结果与上一段代码是等价的。
 注意 objtoken 那一行，
