@@ -71,7 +71,7 @@ Perl 6 的写法如果有兴趣，可以研究一下，我很久没有摸过了�
 
 use Regexp::Grammars 的作用是overload qr, 这也是为什么，不把 这一行移到文件开始部分的原因，否则，会overload 整个文件的qr。
 
-qr 中 <TOP> 行， TOP 表示真个 grammar 的 pattern，放在 <> 中，表示调用这个pattern，所以，在后面一定要有
+qr 中 <TOP> 那一行， TOP 表示真个 grammar 的 pattern，放在 <> 中，表示调用这个pattern，所以，在后面一定要有
 TOP 的定义。
 
 定义一个pattern 用 token 或者rule，两者的主要区别在于对于whilespace 的处理。这跟Perl 6 中rule 和 token 有很大的不同。
