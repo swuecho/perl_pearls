@@ -78,12 +78,10 @@ TOP 的定义。
 
 
 一个包含fasta 条目的文件，有很多 条目，TOP 匹配所以的条目，你可能猜出来了 <[record]>+ 表示 匹配多个 record，
-然后，只需要定义 record 就好了。 record 包括 id， comment， 和 sequence。 sequence 要么是 DNA， RNA，或者 蛋白质。
+然后，只需要定义 record 就好了。 record 包括 id， comment 和 sequence。 sequence 要么是 DNA， RNA，或者 蛋白质。
 
 
 不知道我有没有表达清楚，看看代码吧。
-
-[gist](https://gist.github.com/swuecho/fec5f6155d091ac232e8)
 
 ```
 use v5.20;
