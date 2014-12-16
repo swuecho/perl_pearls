@@ -242,8 +242,8 @@ TOP   {
 [源代码2](https://gist.github.com/swuecho/09a0b815a2f08a74f140)
 
 解析的结果是 Seq object，大致的过程是，当record 匹配以后，如果有actions 并且，actions 有record method，
-那么，这个record method就会被调用。第二个参数是匹配的 result hash ref。请参考，record 函数。
-这里为了方便，把record method 和 paser 放到了一个 namespace，这个并不是必须。
+那么，这个record method就会被调用。第二个参数是匹配的结果 result hash ref。请参考 record method。
+这里为了方便，把record method 和 parser 放到了一个 namespace，这个并不是必须。
 
 
 ### 更OOP 的方式
@@ -298,13 +298,12 @@ if ( $content =~ $parser ) {
  <objtoken: CLASS= NAME>  Define token that blesses return-hash into class
 ```
 
-其实 FASTA::record 的作用就是bless result hash 为 Seq object。 objtoken 只是相当于提供了一个简便写法。
+其实 FASTA::record 的作用就是bless result hash 为 Seq object。 objtoken 相当于提供了一个简便写法。
 
 ## 后记
 本文中的三段代码都是可以直接运行的。虽然并不一个完整的FASTA 文件 Parser。需要做些细节的改动，如果你手头有FATSTA 格式的文件，不妨再文中代码基础上，做改进。主要是要对 dan，rna 和 aa 加 action。
 
-另外，Regexp::Grammars 有50多页的文档。
-
+另外，Regexp::Grammars 有50多页的文档，最主要的没有提到的可能是Grammar 也可以继承的。
 
 ### 作者  
 
