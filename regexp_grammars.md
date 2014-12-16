@@ -46,7 +46,7 @@ grammar FASTA::Grammar {
 ````
 
 Perl 6 对regex 的书写规则做了些改动，而 Regexp::Grammars 是对Perl 5 regex 的扩展，
-所以，需要做一些改动。
+所以，需要做一些改动。为了简便，我写的Perl 5 代码，并不与Perl 6 Advent 中Perl 6代码完全等价（只要稍加改动就可以了）。
 
 Perl 5 中大致如此,
 
@@ -78,7 +78,7 @@ TOP 的定义。
 
 
 一个包含fasta 条目的文件，有很多 条目，TOP 匹配所以的条目，你可能猜出来了 <[record]>+ 表示 匹配多个 record，
-然后，只需要定义 record 就好了。 record 包括 id， comment 和 sequence。 sequence 要么是 DNA， RNA，或者 蛋白质。
+然后，只需要定义 record 就好了。 record 包括 id， comment 和 sequence。 sequence 要么是 DNA， RNA 或者 蛋白质。
 
 
 不知道我有没有表达清楚，看看代码吧。
@@ -145,7 +145,7 @@ __END__
 
 解析得到的是Perl的数据结果，这样就基本达到了目的，但是仍有改进的空间。
 
-因为没个条目是代表一个sequence， 包括 id， comment， 和 sequence, 很自然的，
+因为每个条目是代表一个sequence， 包括 id， comment 和 sequence, 很自然的, 可以定义如下Seq class。
 
 
 ```
@@ -243,7 +243,7 @@ TOP   {
 ```
 [源代码2](https://gist.github.com/swuecho/09a0b815a2f08a74f140)
 
-解析的结果是 Seq object，大致的过程是，当record 匹配以后，如果有actions 并且，action 有record method，
+解析的结果是 Seq object，大致的过程是，当record 匹配以后，如果有actions 并且，actions 有record method，
 那么，这个record method就会被调用。第二个参数是匹配的 result hash ref。请参考，record 函数。
 这里为了方便，把record method 和 paser 放到了一个 namespace，这个并不是必须。
 
@@ -301,6 +301,11 @@ if ( $content =~ $parser ) {
 ```
 
 其实 FASTA::record 的作用就是bless result hash 为 Seq object。 objtoken 只是相当于提供了一个简便写法。
+
+## 后记
+
+这个并不一个完整的FASTA 文件 Parser，需要做些细节的改动，如果你手头有FATSTA 格式的文件，不妨再文中代码基础上，做改进。
+Regexp::Grammars 有50多页的文档。
 
 
 
