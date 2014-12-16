@@ -187,8 +187,6 @@ package FASTA {
     /;
     };
  
-    # TODO sapce problem
- 
     has 'parser' => ( is => 'ro', default => sub { $parser } );
  
     sub record {
