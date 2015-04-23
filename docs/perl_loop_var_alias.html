@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>loop var is aliased</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="charname.html">
+                  charname.pl
+                </a>
+              
+                
+                <a class="source" href="dbm_deep.html">
+                  dbm_deep.pl
+                </a>
+              
+                
+                <a class="source" href="empty.html">
+                  empty.pl
+                </a>
+              
+                
+                <a class="source" href="fun.html">
+                  fun.pl
+                </a>
+              
+                
+                <a class="source" href="haowu_ord.html">
+                  haowu_ord.pl
+                </a>
+              
+                
+                <a class="source" href="io_dir.html">
+                  io_dir.pl
+                </a>
+              
+                
+                <a class="source" href="io_handle_file.html">
+                  io_handle_file.pl
+                </a>
+              
+                
+                <a class="source" href="io_pipe.html">
+                  io_pipe.pl
+                </a>
+              
+                
+                <a class="source" href="label.html">
+                  label.pl
+                </a>
+              
+                
+                <a class="source" href="linux_voice_download0.html">
+                  linux_voice_download0.pl
+                </a>
+              
+                
+                <a class="source" href="list_pair.html">
+                  list_pair.pl
+                </a>
+              
+                
+                <a class="source" href="named_capture.html">
+                  named_capture.pl
+                </a>
+              
+                
+                <a class="source" href="obj_eq_number_eq.html">
+                  obj_eq_number_eq.pl
+                </a>
+              
+                
+                <a class="source" href="oneliner.html">
+                  oneliner.pl
+                </a>
+              
+                
+                <a class="source" href="parameter_role.html">
+                  parameter_role.pl
+                </a>
+              
+                
+                <a class="source" href="perl_loop_var_alias.html">
+                  perl_loop_var_alias.pl
+                </a>
+              
+                
+                <a class="source" href="postderef.html">
+                  postderef.pl
+                </a>
+              
+                
+                <a class="source" href="postderef_complex.html">
+                  postderef_complex.pl
+                </a>
+              
+                
+                <a class="source" href="print_function.html">
+                  print_function.pl
+                </a>
+              
+                
+                <a class="source" href="random_structure.html">
+                  random_structure.pl
+                </a>
+              
+                
+                <a class="source" href="reverse_keep_case.html">
+                  reverse_keep_case.pl
+                </a>
+              
+                
+                <a class="source" href="se_radio_download0.html">
+                  se_radio_download0.pl
+                </a>
+              
+                
+                <a class="source" href="special_case_ref.html">
+                  special_case_ref.pl
+                </a>
+              
+                
+                <a class="source" href="sub_parameter.html">
+                  sub_parameter.pl
+                </a>
+              
+                
+                <a class="source" href="traps.html">
+                  traps.pl
+                </a>
+              
+                
+                <a class="source" href="undefined_attributes.html">
+                  undefined_attributes.pl
+                </a>
+              
+                
+                <a class="source" href="utf8.html">
+                  utf8.pl
+                </a>
+              
+                
+                <a class="source" href="utf8_open.html">
+                  utf8_open.pl
+                </a>
+              
+                
+                <a class="source" href="wantarray.html">
+                  wantarray.pl
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="loop-var-is-aliased">loop var is aliased</h1>
+<pre><code><span class="hljs-keyword">for</span> VAR (LIST) {
+
+ ...
+
+ }
+</code></pre><p>if <em>LIST</em> consists entirely of assignable values( meaning variables,
+generally, not enumerated constants), you can modify each of those
+vairables by modifying <em>VAR</em> inside the loop. That’s because the foreach 
+loop index variable is an implicit alias for each item in the list you’re
+looping over. 
+— programming perl, 118-119</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h3 id="double-each-number-in-a-list">double each number in a list</h3>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">use</span> v5.<span class="hljs-number">20</span>;
+
+<span class="hljs-keyword">my</span> <span class="hljs-variable">@items</span> = ( <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span> );
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-variable">$item</span> (<span class="hljs-variable">@items</span>) {
+    <span class="hljs-variable">$item</span> = <span class="hljs-variable">$item</span> <span class="hljs-keyword">x</span> <span class="hljs-number">2</span>;
+}
+
+is_deeply( \<span class="hljs-variable">@items</span>, [ <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span> ] );</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
