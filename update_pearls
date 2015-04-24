@@ -1,0 +1,8 @@
+docco --layout linear src/*.pl
+cp -rf docs/* ../gh-pages
+echo "go to gh-pages"
+cd ../gh-pages
+ga
+git cm -m 'update'
+echo "push to github pages"
+git push origin gh-pages

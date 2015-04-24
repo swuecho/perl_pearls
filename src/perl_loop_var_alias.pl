@@ -16,11 +16,11 @@
 
 # ### double each number in a list  
 use v5.20;
-
+use Test::More tests => 1;
 my @items = ( 1, 2, 2, 4 );
 
 for my $item (@items) {
-    $item = $item x 2;
+    $item = $item * 2;
 }
 
-is_deeply( \@items, [ 2, 4, 4, 8 ] );
+is_deeply( \@items, [ 2, 4, 4, 8 ] , 'element doubled');
