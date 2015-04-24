@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>charname.pl</title>
+  <title>push.pl</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -13,7 +13,7 @@
 
       <div class="header">
         
-          <h1>charname.pl</h1>
+          <h1>push.pl</h1>
         
 
         
@@ -259,17 +259,30 @@
 
       
         
-        
-        
-          <div class='highlight'><pre> <span class="hljs-keyword">use</span> charnames <span class="hljs-string">':full'</span>;
+        <h2 id="push">push</h2>
 
- <span class="hljs-keyword">print</span> <span class="hljs-string">"\N{GREEK SMALL LETTER SIGMA} is called sigma.\n"</span>;
- <span class="hljs-keyword">print</span> <span class="hljs-string">"\N{LATIN CAPITAL LETTER E WITH VERTICAL LINE BELOW}"</span>,
-       <span class="hljs-string">" is an officially named sequence of two Unicode characters\n"</span>;
- <span class="hljs-keyword">use</span> charnames <span class="hljs-string">':loose'</span>;
- <span class="hljs-keyword">print</span> <span class="hljs-string">"\N{Greek small-letter  sigma}"</span>,
-        <span class="hljs-string">"can be used to ignore case, underscores, most blanks,"</span>, 
-        <span class="hljs-string">"and when you aren't sure if the official name has hyphens\n"</span>;</pre></div>
+        
+      
+        
+        <p>what is the output of this script, 
+could you explain?</p>
+<h3 id="hint-">hint:</h3>
+<p>push, ‘,’ operator and the precedence</p>
+
+        
+          <div class='highlight'><pre><span class="hljs-keyword">use</span> v5.<span class="hljs-number">20</span>;
+<span class="hljs-keyword">my</span> <span class="hljs-variable">@b</span> = (<span class="hljs-number">1</span>..<span class="hljs-number">5</span>);
+<span class="hljs-keyword">my</span> <span class="hljs-variable">@a</span> = (<span class="hljs-number">1</span>..<span class="hljs-number">5</span>);</pre></div>
+        
+      
+        
+        <p>be carefull about the ‘,’ after 6</p>
+
+        
+          <div class='highlight'><pre><span class="hljs-keyword">push</span> <span class="hljs-variable">@a</span>, <span class="hljs-number">6</span>,
+<span class="hljs-keyword">push</span> <span class="hljs-variable">@b</span>, <span class="hljs-number">7</span>;
+<span class="hljs-keyword">say</span> <span class="hljs-keyword">join</span>(<span class="hljs-string">'-'</span>, <span class="hljs-variable">@a</span>);
+<span class="hljs-keyword">say</span> <span class="hljs-keyword">join</span>(<span class="hljs-string">'-'</span>, <span class="hljs-variable">@b</span>);</pre></div>
         
       
       <div class="fleur">h</div>

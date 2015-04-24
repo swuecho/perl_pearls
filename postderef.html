@@ -23,8 +23,8 @@
               
                 
                 <li>
-                  <a class="source" href="capture.html">
-                    capture.pl
+                  <a class="source" href="capture-tiny.html">
+                    capture-tiny.pl
                   </a>
                 </li>
               
@@ -37,29 +37,8 @@
               
                 
                 <li>
-                  <a class="source" href="dbm_deep.html">
-                    dbm_deep.pl
-                  </a>
-                </li>
-              
-                
-                <li>
                   <a class="source" href="empty.html">
                     empty.pl
-                  </a>
-                </li>
-              
-                
-                <li>
-                  <a class="source" href="expr.html">
-                    expr.pl
-                  </a>
-                </li>
-              
-                
-                <li>
-                  <a class="source" href="fun.html">
-                    fun.pl
                   </a>
                 </li>
               
@@ -191,6 +170,13 @@
               
                 
                 <li>
+                  <a class="source" href="push.html">
+                    push.pl
+                  </a>
+                </li>
+              
+                
+                <li>
                   <a class="source" href="random_structure.html">
                     random_structure.pl
                   </a>
@@ -273,48 +259,96 @@
 
       
         
+        <h3 id="postderef-in-5-20">postderef in 5.20</h3>
+
         
-        
-          <div class='highlight'><pre><span class="hljs-comment">=pod
-more info
-https://metacpan.org/pod/distribution/perl/pod/perlref.pod
-=cut</span>
-<span class="hljs-keyword">use</span> v5.<span class="hljs-number">20</span>;
-<span class="hljs-keyword">use</span> experimental <span class="hljs-string">'postderef'</span>;
-<span class="hljs-keyword">use</span> DDP; <span class="hljs-comment"># for p </span></pre></div>
+          <div class='highlight'><pre>    <span class="hljs-keyword">use</span> v5.<span class="hljs-number">20</span>;
+    <span class="hljs-keyword">use</span> experimental <span class="hljs-string">'postderef'</span>;
+    <span class="hljs-keyword">use</span> DDP;</pre></div>
         
       
         
         <p>‘a’, ‘b’, ‘c’ .. ‘z’</p>
 
         
-          <div class='highlight'><pre><span class="hljs-keyword">my</span> <span class="hljs-variable">$items</span> = [<span class="hljs-string">'a'</span>..<span class="hljs-string">'z'</span>];
+          <div class='highlight'><pre>    <span class="hljs-keyword">my</span> <span class="hljs-variable">$items</span> = [ <span class="hljs-string">'a'</span> .. <span class="hljs-string">'z'</span> ];</pre></div>
+        
+      
+        
+        <h4 id="deref-get-a-whole-array-">deref get a whole array;</h4>
 
-<span class="hljs-keyword">say</span> <span class="hljs-string">"deref get a whole array"</span>;
+        
+      
+        
+        <p>a; b; c; d; … x; y; z</p>
 
-<span class="hljs-keyword">say</span>(<span class="hljs-keyword">join</span> <span class="hljs-string">':'</span>,   <span class="hljs-variable">@$</span>items);
-<span class="hljs-keyword">say</span>(<span class="hljs-keyword">join</span> <span class="hljs-string">','</span>,  <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">@*</span>);
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">say</span>( <span class="hljs-keyword">join</span> <span class="hljs-string">'; '</span>, <span class="hljs-variable">@$</span>items );
+    <span class="hljs-keyword">say</span>( <span class="hljs-keyword">join</span> <span class="hljs-string">'; '</span>, <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">@*</span> );    <span class="hljs-comment"># same</span></pre></div>
+        
+      
+        
+        <h4 id="get-a-value-by-index-">get a value by index;</h4>
 
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">say</span> <span class="hljs-variable">$$</span>items[<span class="hljs-number">1</span>];                  <span class="hljs-comment"># 'b'</span>
+    <span class="hljs-keyword">say</span> <span class="hljs-variable">$items</span>-&gt;[<span class="hljs-number">1</span>];                 <span class="hljs-comment"># 'b'</span></pre></div>
+        
+      
+        
+        <h4 id="get-multi-value-by-indexes-">get multi value by indexes;</h4>
 
-<span class="hljs-keyword">say</span> <span class="hljs-string">"get the largest index in a array"</span>;
-<span class="hljs-keyword">say</span> <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">$#</span>*;
-<span class="hljs-keyword">say</span> <span class="hljs-variable">$#</span><span class="hljs-variable">$items</span>;
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">say</span>( <span class="hljs-keyword">join</span> <span class="hljs-string">';'</span>, <span class="hljs-variable">@$</span>items[ <span class="hljs-number">2</span>,   <span class="hljs-number">3</span> ] );    <span class="hljs-comment"># 'b; c'</span>
+    <span class="hljs-keyword">say</span>( <span class="hljs-keyword">join</span> <span class="hljs-string">';'</span>, <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">@[</span> <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ] );    <span class="hljs-comment"># 'b; c'</span></pre></div>
+        
+      
+        
+        <h4 id="-get-the-largest-index-in-a-array-">“get the largest index in a array”;</h4>
+<p>25</p>
 
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">say</span> <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">$#</span>*;</pre></div>
+        
+      
+        
+        <p>25</p>
 
-<span class="hljs-keyword">say</span> <span class="hljs-string">"get a value by index"</span>;
-<span class="hljs-keyword">say</span>  <span class="hljs-variable">$$</span>items[<span class="hljs-number">1</span>];
-<span class="hljs-keyword">say</span>  <span class="hljs-variable">$items</span>-&gt;[<span class="hljs-number">1</span>];
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">say</span> <span class="hljs-variable">$#</span><span class="hljs-variable">$items</span>;</pre></div>
+        
+      
+        
+        <h4 id="-get-index-and-value-">“get index and value”;</h4>
 
+        
+      
+        
+        <p>this is postfix slicing.</p>
 
-<span class="hljs-keyword">say</span> <span class="hljs-string">"get multi value by indexes"</span>;
-<span class="hljs-keyword">say</span>(<span class="hljs-keyword">join</span> <span class="hljs-string">';'</span>, <span class="hljs-variable">@$</span>items[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]);
-<span class="hljs-keyword">say</span>(<span class="hljs-keyword">join</span> <span class="hljs-string">';'</span>, <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">@[</span><span class="hljs-number">2</span>,<span class="hljs-number">3</span>]);
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">my</span> <span class="hljs-variable">%hash_norm</span> = <span class="hljs-variable">%$</span>items[ <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ];</pre></div>
+        
+      
+        
+        <p>same here</p>
 
-<span class="hljs-keyword">say</span> <span class="hljs-string">"get index and value"</span>;
-<span class="hljs-keyword">my</span> <span class="hljs-variable">%hash_norm</span> = <span class="hljs-variable">%$</span>items[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
-<span class="hljs-keyword">my</span> <span class="hljs-variable">%hash_postdef</span> = <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">%[</span><span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
-p <span class="hljs-variable">%hash_norm</span>;
-p <span class="hljs-variable">%hash_postdef</span>;</pre></div>
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">my</span> <span class="hljs-variable">%hash_postdef</span> = <span class="hljs-variable">$items</span>-&gt;<span class="hljs-variable">%[</span> <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ];</pre></div>
+        
+      
+        
+        <p>{ 2 =&gt; ‘c’ , 3 =&gt; ‘d’ }</p>
+
+        
+          <div class='highlight'><pre>    p <span class="hljs-variable">%hash_norm</span>;</pre></div>
+        
+      
+        
+        <p>{ 2 =&gt; ‘c’ , 3 =&gt; ‘d’ }</p>
+
+        
+          <div class='highlight'><pre>    p <span class="hljs-variable">%hash_postdef</span>;</pre></div>
         
       
       <div class="fleur">h</div>
